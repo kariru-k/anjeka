@@ -1,0 +1,55 @@
+<!-- Page Title -->
+<div class="page-title dark-background">
+  <div class="container position-relative">
+    <h1>{{hospitalityService.id}}</h1>
+    <p>{{hospitalityService.details.briefDescription}}</p>
+  </div>
+</div><!-- End Page Title -->
+
+<!-- Service Details Section -->
+<section id="service-details" class="service-details section">
+
+  <div class="container">
+
+    <div class="row gy-5">
+
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="service-box">
+          <h4>Services List</h4>
+          <div class="services-list" *ngFor="let service of hospitalityService.details.serviceList">
+            <a href="#"><i class="bi bi-arrow-right-circle"></i><span>{{service}}</span></a>
+          </div>
+        </div><!-- End Services List -->
+
+        <div class="help-box d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-headset help-icon"></i>
+          <h4>Have a Question?</h4>
+          <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>+254 700111292</span></p>
+          <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <a href="mailto:info@anjekaconsultancy.co.ke">info&#64;anjekaconsultancy.co.ke</a></p>
+        </div>
+
+      </div>
+
+      <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+        <h3>{{hospitalityService.details.catchyTitle}}</h3>
+        <p>
+          {{hospitalityService.details.explanation1}}
+        </p>
+        <p>
+          {{hospitalityService.details.explanation2}}
+        </p>
+        <p>
+          {{hospitalityService.details.explanation3}}
+        </p>
+        <p>
+          {{hospitalityService.details.explanation4}}
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Service Details Section -->

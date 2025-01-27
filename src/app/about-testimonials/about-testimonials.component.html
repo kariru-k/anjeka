@@ -1,0 +1,42 @@
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Why Choose Us</h2>
+    <p>Discover what sets us apart in delivering unmatched quality and excellence.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <ngb-carousel class="swiper init-swiper" (slide)="onSlideChange($event)">
+
+      <ng-template ngbSlide class="swiper-wrapper" *ngFor="let testimonial of testimonials">
+        <div  class="swiper-slide">
+          <div class="testimonial-item">
+            <div class="testimonial-icon">
+              <i [class]="testimonial.icon"></i>
+            </div>
+            <h3>{{ testimonial.title }}</h3>
+            <h4>{{ testimonial.subtitle }}</h4>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              {{ testimonial.description }}
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div>
+      </ng-template>
+      <a class="carousel-control-prev" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+      <ol class="carousel-indicators"></ol>
+    </ngb-carousel>
+  </div>
+</section>
+

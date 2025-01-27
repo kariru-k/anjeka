@@ -1,0 +1,22 @@
+<section id="featured-services" class="featured-services section">
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-3 col-md-6" *ngFor="let service of services" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="service.delay">
+        <div class="service-item position-relative" [ngClass]="service.colorClass">
+          <div class="icon">
+            <i class="bi" [ngClass]="service.icon"></i>
+          </div>
+          <a class="stretched-link" [routerLink]="['/services', service.title]">
+            <h3>{{ service.title }}</h3>
+          </a>
+          <p>{{ service.description }}</p>
+        </div>
+      </div><!-- End Service Item -->
+    </div>
+
+  </div>
+
+</section><!-- /Featured Services Section -->

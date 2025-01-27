@@ -1,0 +1,55 @@
+<form [formGroup]="contactForm" (ngSubmit)="sendEmail()" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+  <div class="row gy-4">
+
+    <div class="col-md-6">
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="Your Name"
+        [ngClass]="{'is-invalid': contactForm.get('name')?.invalid && contactForm.get('name')?.touched}"
+        required
+      />
+    </div>
+
+    <div class="col-md-6">
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        placeholder="Your Email"
+        [ngClass]="{'is-invalid': contactForm.get('email')?.invalid && contactForm.get('email')?.touched}"
+        required
+      />
+    </div>
+
+    <div class="col-md-12">
+      <input
+        type="text"
+        formControlName="subject"
+        class="form-control"
+        placeholder="Subject"
+        required
+      />
+    </div>
+
+    <div class="col-md-12">
+      <textarea
+        class="form-control"
+        formControlName="message"
+        rows="4"
+        placeholder="Message"
+        required
+      ></textarea>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <div *ngIf="loading" class="loading">Loading...</div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="sent-message">{{ successMessage }}</div>
+
+      <button type="submit" [disabled]="loading || contactForm.invalid">Send Message</button>
+    </div>
+
+  </div>
+</form>

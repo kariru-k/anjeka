@@ -1,0 +1,40 @@
+<!-- Hero Section -->
+<section
+  id="hero"
+  class="hero section dark-background"
+  [ngStyle]="{ '--hero-background': getHeroBackground() }"
+>
+
+  <!-- <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in"> -->
+
+  <div id="hero-carousel" class="carousel carousel-fade">
+
+    <ngb-carousel class="container position-relative" (slide)="onSlideChange($event)">
+
+      <ng-template
+        ngbSlide
+        class="carousel-item"
+        *ngFor="let slide of slides; let i = index"
+      >
+          <div class="carousel-container">
+            <h2>{{slide.title}}</h2>
+            <p>{{slide.text}}</p>
+            <a href="#about" class="btn-get-started">Read More</a>
+          </div>
+      </ng-template><!-- End Carousel Item -->
+
+      <a class="carousel-control-prev" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+      <ol class="carousel-indicators"></ol>
+
+    </ngb-carousel>
+
+  </div>
+
+</section><!-- /Hero Section -->
