@@ -6,7 +6,6 @@ import {ServicesItemsComponent} from '../services-items/services-items.component
 @Component({
   selector: 'app-services-page',
   imports: [
-    FeaturedServicesComponent,
     ServicesTitleComponent,
     ServicesItemsComponent
   ],
