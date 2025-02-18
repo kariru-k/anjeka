@@ -18,13 +18,13 @@ export class ServicesItemsComponent {
       id: 'Hospitality Management',
       title: 'Hospitality Management',
       description: 'Comprehensive management services tailored for the hospitality industry.',
-      image: 'assets/img/services-1.jpg'
+      image: 'assets/img/teamwork-3213924_1280.jpg'
     },
     {
       id: 'Hospitality Training',
       title: 'Hospitality Training',
       description: 'Empowering individuals through hands-on and expert-led training programs.',
-      image: 'assets/img/services-2.jpg'
+      image: 'assets/img/front-view-woman-working-service-industry.jpg'
     },
     {
       id: 'Hospitality Research',
@@ -36,7 +36,7 @@ export class ServicesItemsComponent {
       id: 'Hospitality Consultancy',
       title: 'Hospitality Consultancy',
       description: 'Expert consultancy to guide strategic decisions and improve outcomes.',
-      image: 'assets/img/services-4.jpg'
+      image: 'assets/img/guests-arriving-hotel-reception.jpg'
     }
   ];
 }

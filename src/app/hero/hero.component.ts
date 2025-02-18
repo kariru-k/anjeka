@@ -17,27 +17,27 @@ export class HeroComponent{
     {
       title: 'Welcome to Anjeka',
       text: 'Delivering excellence in hospitality services tailored to your unique needs.',
-      backgroundImage: 'url("assets/img/hero-1.jpg")',
+      backgroundImage: 'url("assets/img/hotel-1831072_1280.jpg")',
     },
     {
       title: 'Your Partner in Hospitality',
       text: 'Creating memorable experiences with seamless service and unmatched professionalism.',
-      backgroundImage: 'url("assets/img/services.jpg")',
+      backgroundImage: 'url("assets/img/hotel-7885138_1280.jpg")',
     },
     {
       title: 'Redefining Guest Satisfaction',
       text: 'Ensuring comfort, quality, and care in every interaction we provide.',
-      backgroundImage: 'url("assets/img/services-1.jpg")',
+      backgroundImage: 'url("assets/img/landscape-2016308_1280.jpg")',
     },
     {
       title: 'Hospitality with Innovation',
       text: 'Blending modern solutions with a personal touch to elevate your guest experience.',
-      backgroundImage: 'url("assets/img/hero-1.jpg")',
+      backgroundImage: 'url("assets/img/hotel-1111199_1280.jpg")',
     },
     {
       title: 'Exceeding Expectations',
       text: 'Building trust and long-term relationships through exceptional hospitality solutions.',
-      backgroundImage: 'url("assets/img/services.jpg")',
+      backgroundImage: 'url("assets/img/hotel-928937_1280.jpg")',
     },
   ];
 
