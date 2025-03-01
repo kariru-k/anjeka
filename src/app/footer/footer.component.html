@@ -20,16 +20,15 @@
           <li><i class="bi bi-chevron-right"></i> <a routerLink="">Home</a></li>
           <li><i class="bi bi-chevron-right"></i> <a routerLink="about">About us</a></li>
           <li><i class="bi bi-chevron-right"></i> <a routerLink="services">Services</a></li>
+          <li><i class="bi bi-chevron-right"></i> <a routerLink="team">Meet the Team</a></li>
+          <li><i class="bi bi-chevron-right"></i> <a routerLink="contact">Contact us</a></li>
         </ul>
       </div>
 
       <div class="col-lg-2 col-md-3 footer-links">
         <h4>Our Services</h4>
-        <ul>
-          <li><i class="bi bi-chevron-right"></i> <a routerLink="services">Hospitality Management</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a routerLink="services">Hospitality Training</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a routerLink="services">Hospitality Research</a></li>
-          <li><i class="bi bi-chevron-right"></i> <a routerLink="services">Hospitality Consultancy</a></li>
+        <ul *ngFor="let service of services">
+          <li><i class="bi bi-chevron-right"></i> <a [routerLink]="['/services', service.id]">{{ service.title }}</a></li>
         </ul>
       </div>
 
@@ -37,14 +36,21 @@
         <h4>Call Us</h4>
         <p>Quality Services in Hospitality Operations and Management in a Professional Environment while maintaining Integrity and ensuring Value and ultimate Customer Satisfaction.</p>
         <div class="social-links d-flex">
-          <a href=""><i class="bi bi-twitter-x"></i></a>
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href="https://x.com/anjekaconsult33"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61572712972277"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/67569484/admin/dashboard/"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
-
     </div>
+
+    <!-- Add another row to show the copyright with the current year, use the relevant function -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <p>&copy; Anjeka Consulting {{ currentYear() }}. All Rights Reserved</p>
+      </div>
+    </div>
+
+
   </div>
 
 </footer>

@@ -25,26 +25,36 @@
   /**
    * Mobile nav toggle
    */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check if the screen width is small enough (mobile view)
+    if (window.innerWidth <= 1200) {  // Adjust based on your breakpoints (e.g., for Bootstrap it’s 1200px)
+      const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+      if (mobileNavToggleBtn) {
+        function mobileNavToogle() {
+          document.querySelector('body').classList.toggle('mobile-nav-active');
+          mobileNavToggleBtn.classList.toggle('bi-list');
+          mobileNavToggleBtn.classList.toggle('bi-x');
+        }
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+        mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+      } else {
+        console.log('Mobile nav toggle button not found.');
       }
-    });
 
+      /**
+       * Hide mobile nav on same-page/hash links
+       */
+      document.querySelectorAll('#navmenu a').forEach(navmenu => {
+        navmenu.addEventListener('click', () => {
+          if (document.querySelector('.mobile-nav-active')) {
+            mobileNavToogle();
+          }
+        });
+      });
+    }
   });
+
 
   /**
    * Toggle mobile nav dropdowns

@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgOptimizedImage} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-services-details',
   imports: [
-    NgForOf
+    NgForOf,
+    NgOptimizedImage
   ],
   standalone: true,
   templateUrl: './services-details.component.html',
@@ -13,13 +14,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ServicesDetailsComponent implements OnInit {
 
-  hospitalityService!: { id: string; details: { catchyTitle: string; briefDescription: string; explanation1: string; explanation2: string; explanation3: string; explanation4: string; serviceList: string[]; }; };
+  hospitalityService!: { id: string; image: string; details: { catchyTitle: string; briefDescription: string; explanation1: string; explanation2: string; explanation3: string; explanation4: string; serviceList: string[]; }; };
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private readonly route: ActivatedRoute) {}
 
   hospitalityData = [
     {
       id: "Hospitality Management",
+      image: "assets/img/hotel-1330850_1280.jpg",
       details: {
         catchyTitle: "Our Hospitality Management services are designed to optimize efficiency and achieve excellence.",
         briefDescription: "Operate Efficiently and Effectively",
@@ -44,6 +46,7 @@ export class ServicesDetailsComponent implements OnInit {
     },
     {
       id: "Hospitality Training",
+      image: "assets/img/hotel-1749602_1280.jpg",
       details: {
         catchyTitle: "Empower your workforce with our expert Hospitality Training services.",
         briefDescription: "Empower Your Employees",
@@ -69,6 +72,7 @@ export class ServicesDetailsComponent implements OnInit {
     },
     {
       id: "Hospitality Research",
+      image: "assets/img/ux-indonesia-8mikJ83LmSQ-unsplash.jpg",
       details: {
         catchyTitle: "Discover untapped opportunities with our comprehensive Hospitality Research services.",
         briefDescription: "Discover Opportunities",
@@ -87,6 +91,7 @@ export class ServicesDetailsComponent implements OnInit {
     },
     {
       id: "Hospitality Consultancy",
+      image: "assets/img/louis-hansel-93ccfD84tCA-unsplash.jpg",
       details: {
         catchyTitle: "Get expert guidance with our tailored Hospitality Consultancy services.",
         briefDescription: "Get the Right Answers",

@@ -1,26 +1,49 @@
-<header id="header" class="header d-flex align-items-center fixed-top">
+<header class="header d-flex align-items-center fixed-top" id="header">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
     <a class="logo d-flex align-items-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-       <img src="assets/img/logo.png" alt="">
+      <img alt="" src="assets/img/anjeka logo.jpg">
       <h1 class="sitename">Anjeka</h1>
     </a>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a routerLink="" class="active">Home</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/services">Services</a></li>
-        <li><a routerLink="/careers">Careers</a></li>
-        <li><a routerLink="/team">Team</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
-      </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    <nav class="navmenu navbar navbar-expand-lg justify-content-center" id="navmenu">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': isNavbarCollapsed}">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="active nav-link" (click)="closeNavbar()" routerLink="">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="closeNavbar()" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="closeNavbar()" routerLink="/services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="closeNavbar()" routerLink="/team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="closeNavbar()" routerLink="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <button
+        aria-controls="navbarSupportedContent"
+        [attr.aria-expanded]="isNavbarCollapsed ? 'true' : 'false'"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed"
+        aria-label="Toggle navigation"
+        class="navbar-toggler mobile-nav-toggle d-xl-none"
+        data-target="#navbarSupportedContent"
+        data-toggle="collapse"
+        type="button"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </nav>
 
   </div>
 </header>
 
 <!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a class="scroll-top d-flex align-items-center justify-content-center" href="#" id="scroll-top"><i
+  class="bi bi-arrow-up-short"></i></a>

@@ -9,7 +9,7 @@
   background-color: var(--background-color);
   padding: 15px 0;
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 1050;
 }
 
 .header .logo {
@@ -38,7 +38,7 @@
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .navmenu {
     padding: 0;
   }
@@ -145,129 +145,61 @@
 }
 
 /* Navmenu - Mobile */
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-
-  .navmenu {
-    padding: 0;
-    z-index: 9997;
-  }
-
-  .navmenu ul {
-    display: none;
-    list-style: none;
+@media (max-width: 992px) {
+  /* Navbar background color when collapsed */
+  .navbar-collapse {
+    background-color: white; /* White background */
+    width: 100vw; /* Full width */
     position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    top: 60px; /* Adjust according to your header's height */
+    z-index: 1000;
+    right: 20px;
   }
 
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
+  /* Smooth transition for the toggle button */
+  .navbar-toggler-icon {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Make navbar items stack vertically when collapsed */
+  .navbar-nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-around;
+    width: 100vw; /* Full width */
     padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    transition: all 0.5s ease-in-out;
   }
 
-  .navmenu .dropdown ul ul {
-    background-color: rgba(33, 37, 41, 0.1);
+  /* Make each navbar item take up the full width */
+  .navbar-nav .nav-item {
+    width: 100%;
+    text-align: center;
+    margin: 5px 0; /* Add some space between items */
   }
 
-  .navmenu .dropdown>.dropdown-active {
+  /* Style for navbar links */
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    background-color: white; /* White background for links */
+    margin: 5px 0; /* Space between items */
+  }
+
+  /* Navbar toggle button settings */
+  .navbar-toggler {
+    margin-bottom: 15px; /* Space between the button and menu */
+  }
+
+  /* Ensure the navbar takes up the full width on smaller screens */
+  .navbar-collapse {
+    width: 100vw;
+    right: 0px;
+  }
+
+  /* Ensure the button is on top */
+  .navbar-toggler {
     display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
-    z-index: 9999;
-  }
-
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
-  }
-
-  .mobile-nav-active .navmenu>ul {
-    display: block;
+    position: relative;
+    z-index: 1050; /* Keep the toggle button on top of the navbar */
   }
 }
 
