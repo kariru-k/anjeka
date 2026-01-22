@@ -148,3 +148,18 @@ section,
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Accessibility: visible focus outlines for keyboard users */
+:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* Development aid: highlight images missing alt text so devs can fix them */
+img[alt=""], img:not([alt]) {
+  outline: 2px dashed #e53935;
+}
