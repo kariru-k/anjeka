@@ -1,0 +1,102 @@
+:host { display: block; }
+
+/* Scoped replica of Moderna card styles */
+.blog-card {
+  background-color: var(--surface-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex; /* ensure column layout stretches */
+  flex-direction: column;
+}
+
+/* Enforce a consistent media area using aspect-ratio so images keep quality and fill the box */
+.blog-card .post-img {
+  aspect-ratio: 16 / 9; /* keeps all post images the same shape */
+  width: calc(100% + 60px); /* preserve existing negative margin visual where used */
+  margin: -30px -30px 15px -30px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.blog-card .post-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preserve quality and crop to fit */
+  display: block;
+}
+
+.blog-card .post-category {
+  font-size: 16px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-bottom: 10px;
+}
+
+.blog-card .title {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.blog-card .title a {
+  color: var(--heading-color);
+  transition: 0.3s;
+}
+
+.blog-card .title a:hover {
+  color: var(--accent-color);
+}
+
+.blog-card .post-author-img {
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.blog-card .post-author {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.blog-card .post-date {
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin-bottom: 0;
+}
+
+/* Reveal area for in-card preview */
+.reveal {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+.reveal.expanded {
+  max-height: 400px; /* enough for a short preview */
+  opacity: 1;
+}
+
+/* push the read-more row to the bottom so cards align */
+.read-more-row {
+  margin-top: auto;
+}
+
+.readmore {
+  color: var(--accent-color);
+}
+
+.btn-toggle {
+  background: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-size: 14px;
+}
+.btn-toggle:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}

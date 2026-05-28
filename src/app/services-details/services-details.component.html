@@ -32,7 +32,7 @@
       </div>
 
       <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-        <img [src]= "hospitalityService.image" alt="" class="img-fluid services-img">
+        <img [ngSrc]="hospitalityService.image" width="1280" height="720" alt="" class="img-fluid services-img">
         <h3>{{hospitalityService.details.catchyTitle}}</h3>
         <p>
           {{hospitalityService.details.explanation1}}

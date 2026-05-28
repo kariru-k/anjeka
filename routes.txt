@@ -1,0 +1,13 @@
+/
+/about
+/services
+/services/hospitality-management
+/services/hospitality-training
+/services/hospitality-research
+/services/hospitality-consultancy
+/team
+/blog
+/blog/service-failure-in-hospitality
+/blog/attributes-of-competent-hospitality-professionals
+/blog/motivating-hospitality-professionals
+/contact

@@ -1,0 +1,94 @@
+:host { display: block; }
+
+
+/* Blog Posts Section spacing matches Moderna */
+.blog-posts .row.gy-4 { row-gap: 1.5rem; }
+
+/* Make columns flex containers so child components (app-blog-card) can stretch */
+.row.gy-4.align-items-stretch > [class*="col-"] {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Ensure the app-blog-card element fills the column and maintains column layout */
+.row.gy-4.align-items-stretch > [class*="col-"] > app-blog-card {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+/* Make each post card fill the height of its column so titles of different lengths won't break alignment */
+.row.gy-4 > [class*="col-"] {
+  display: flex;
+  align-items: stretch;
+}
+
+.row.gy-4 > [class*="col-"] > article,
+.row.gy-4 > [class*="col-"] > app-blog-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* Uniform image area for posts */
+.post-img {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9; /* consistent ratio */
+  width: 100%;
+  flex: 0 0 auto;
+  /* responsive cap: min 160px, preferred 22vw, max 420px */
+  height: clamp(160px, 22vw, 420px);
+  max-height: clamp(160px, 22vw, 420px);
+}
+
+.post-img img,
+.post-img .img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preserve quality and fill */
+  display: block;
+}
+
+/* Ensure the rest of the article (title, meta) sits below the image and stretches if necessary */
+.row.gy-4 article .title,
+.row.gy-4 article .post-category,
+.row.gy-4 article .post-meta {
+  margin-top: 1rem;
+}
+
+/* Blog Pagination (Moderna) */
+.blog-pagination {
+  padding-top: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+.blog-pagination ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.blog-pagination li { margin: 0 5px; transition: 0.3s; }
+.blog-pagination li a {
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-color);
+}
+.blog-pagination li a.active, .blog-pagination li a:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Responsive tweaks */
+@media (max-width: 575.98px) {
+  .page-title { padding-top: 2rem; padding-bottom: 2rem; }
+}
+
+/* Small responsive tweak: on very small screens keep natural stacking */
+@media (max-width: 576px) {
+  .post-img { aspect-ratio: 4 / 3; height: clamp(140px, 34vw, 260px); max-height: clamp(140px, 34vw, 260px); }
+}

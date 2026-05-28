@@ -1,0 +1,37 @@
+<article class="blog-card">
+  <div class="post-img">
+    <img loading="lazy" [src]="post.image" [alt]="post.title" class="img-fluid">
+  </div>
+
+  <p class="post-category">{{ post.category }}</p>
+
+  <h2 class="title">
+    <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+  </h2>
+
+  <div class="d-flex align-items-center">
+    <img *ngIf="post.authorAvatar" loading="lazy" [src]="post.authorAvatar" [alt]="post.authorName" class="img-fluid post-author-img flex-shrink-0">
+    <div class="post-meta">
+      <p class="post-author">{{ post.authorName }}</p>
+      <p class="post-date">
+        <time [attr.datetime]="(post.date | date:'yyyy-MM-dd')">{{ post.date | date:'MMM d, y' }}</time>
+      </p>
+    </div>
+  </div>
+
+  <div class="reveal" [class.expanded]="expanded" [attr.aria-hidden]="expanded ? 'false' : 'true'" id="reveal-{{ post.slug }}">
+    <p *ngIf="post.excerpt && !post.contentHtml">{{ post.excerpt }}</p>
+    <div *ngIf="post.contentHtml" [innerHTML]="post.contentHtml"></div>
+  </div>
+
+  <div class="read-more-row d-flex align-items-center justify-content-between mt-3">
+    <a class="readmore" [routerLink]="['/blog', post.slug]" [attr.aria-label]="'Read full post: ' + post.title">Read More</a>
+    <button class="btn-toggle" type="button"
+            [attr.aria-expanded]="expanded ? 'true' : 'false'"
+            [attr.aria-controls]="'reveal-' + post.slug"
+            (click)="toggleExpand()">
+      <span *ngIf="!expanded">Open</span>
+      <span *ngIf="expanded">Close</span>
+    </button>
+  </div>
+</article>

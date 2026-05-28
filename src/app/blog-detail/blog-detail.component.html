@@ -1,0 +1,104 @@
+<main class="main">
+  <br>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8">
+
+        <section id="blog-details" class="blog-details section">
+          <div class="container">
+
+            <article class="article" *ngIf="post as p">
+
+              <div class="post-img">
+                <img [src]="p.image" [alt]="p.title" class="img-fluid">
+              </div>
+
+              <h2 class="title">{{ p.title }}</h2>
+
+              <div class="meta-top">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="#">{{ p.authorName }}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="#"><time [attr.datetime]="(p.date | date:'yyyy-MM-dd')">{{ p.date | date:'MMM d, y' }}</time></a></li>
+                </ul>
+              </div>
+
+              <div class="content" [innerHTML]="p.contentHtml"></div>
+
+              <div class="meta-bottom" *ngIf="p.tags?.length">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">{{ p.category }}</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li *ngFor="let tag of p.tags"><a href="#">{{ tag }}</a></li>
+                </ul>
+              </div>
+
+            </article>
+
+            <article class="article" *ngIf="!post">
+              <h2 class="title">Post not found</h2>
+              <p>The blog post you are looking for was not found.</p>
+              <a routerLink="/blog" class="btn btn-outline-primary">Back to Blog</a>
+            </article>
+
+            <!-- Related Posts -->
+            <section class="section related-posts" *ngIf="related.length">
+              <div class="container">
+                <div class="section-title">
+                  <h2>Related Posts</h2>
+                  <p>You may also enjoy these reads</p>
+                </div>
+                <div class="row gy-4 align-items-stretch">
+                  <div class="col-lg-6" *ngFor="let r of related">
+                    <app-blog-card [post]="r"></app-blog-card>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contact CTA Section -->
+            <section class="section contact-cta">
+              <div class="container">
+                <div class="section-title">
+                  <h2>Have a question about this topic?</h2>
+                  <p>Send us a message and we’ll be glad to help.</p>
+                </div>
+                <app-contact-form></app-contact-form>
+              </div>
+            </section>
+
+          </div>
+        </section>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sidebar">
+
+          <div class="sidebar-item categories" *ngIf="categories.length">
+            <h3 class="sidebar-title">Categories</h3>
+            <ul class="mt-3">
+              <li *ngFor="let c of categories"><a href="#">{{ c.name }} <span>({{ c.count }})</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-item recent-posts" *ngIf="recent.length">
+            <h3 class="sidebar-title">Recent Posts</h3>
+            <div class="post-item mt-3" *ngFor="let rp of recent">
+              <img [src]="rp.image" [alt]="rp.title" class="flex-shrink-0">
+              <div>
+                <h4><a [routerLink]="['/blog', rp.slug]">{{ rp.title }}</a></h4>
+                <time [attr.datetime]="(rp.date | date:'yyyy-MM-dd')">{{ rp.date | date:'MMM d, y' }}</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

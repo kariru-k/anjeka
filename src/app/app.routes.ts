@@ -5,6 +5,7 @@ import {ServicesPageComponent} from './services-page/services-page.component';
 import {CareersPageComponent} from './careers-page/careers-page.component';
 import {TeamPageComponent} from './team-page/team-page.component';
 import {BlogPageComponent} from './blog-page/blog-page.component';
+import {BlogDetailComponent} from './blog-detail/blog-detail.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {ServicesDetailsComponent} from './services-details/services-details.component';
 import {NgModule} from '@angular/core';
@@ -61,6 +62,15 @@ export const routes: Routes = [
     data: {
       title: 'Blog — Anjeka',
       description: 'Read the latest articles, news, and insights from the Anjeka team.',
+      image: '/assets/img/social-blog.png'
+    }
+  },
+  {
+    path: 'blog/:slug',
+    component: BlogDetailComponent,
+    data: {
+      title: 'Blog Details — Anjeka',
+      description: 'Read this article from the Anjeka team.',
       image: '/assets/img/social-blog.png'
     }
   },
